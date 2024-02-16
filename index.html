@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -459,10 +459,23 @@
                   Total: $<span id="total"></span>
                 </p>
                 <hr class="my-4" />
-                <button class="btn btn-wide bg-[#F11A7B] text-white">
+                <button id="purchase" class="btn btn-wide bg-[#F11A7B] text-white">
                   Make Purchase
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <section>
+        <div id="Congratulations"  class="card text-center hidden  absolute top-[120%] right-[40%] w-96 bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="radial-progress mx-auto bg-gray-300  border-4 " " ><img class="w-44" src="Images/icons8-ok-48.png" alt=""></div>
+            <h2 class="card-title text-4xl mx-auto">Congratulations</h2>
+            <p>You purchase the product</p>
+            <div class="card-actions justify-center">
+              <button id="go-home" class="bg-[#F11A7B] btn mt-5 text-white ">Go Home</button>
             </div>
           </div>
         </div>

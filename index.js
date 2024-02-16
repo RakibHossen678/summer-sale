@@ -1,5 +1,5 @@
 let titleCount = 1 ; 
-let totalPrice=0
+let totalPrice=0;
 const cards = document.querySelectorAll('.card')
 // console.log(cards);
 
@@ -44,21 +44,55 @@ const btn = document.getElementById('apply-btn');
 btn.addEventListener('click',function(){
     // console.log('clicked');
     const inputField = document.getElementById('input-field').value;
-    // console.log(inputField);
+    const coponCode=inputField.split(' ').join().toUpperCase();
+    // console.log(coponCode);
 
-    if(inputField === 'SELL200' && totalPrice>=200){
-        discount = totalPrice*20/100;
-        document.getElementById('discountPrice').innerText=discount;
+    if( totalPrice >= 200){
+        if(coponCode ==='SELL200'){
+            // discount = totalPrice*20/100;
+            // document.getElementById('discountPrice').innerText=discount;
+            const discountElement = document.getElementById('discountPrice');
+            const discountAmount = (totalPrice*0.2).toFixed(2);
+            discountElement.innerText=discountAmount
+            // total=totalPrice-discount;
+            // document.getElementById('total').innerText=total
 
-        total=totalPrice-discount;
-        document.getElementById('total').innerText=total
+            const totalPriceElement=document.getElementById('total');
+            const total = totalPrice - discountAmount;
+            totalPriceElement.innerText=total;
+            document.getElementById('input-field').value='';
+
+
+
+        }
+        else{
+            alert('Invalid Cupone code');
+            document.getElementById('input-field').value='';
+
+        }
+        
+
+        
     }
     else{
-        document.getElementById('discountPrice').innerText=0;
-        total=totalPrice
-        document.getElementById('total').innerText=total
+        alert('Please purchase  at least $200');
+        document.getElementById('input-field').value='';
+
+        // document.getElementById('discountPrice').innerText= 0 ;
+        // total = totalPrice
+        // document.getElementById('total').innerText=total
     }
 
 
     
+})
+
+
+document.getElementById('purchase').addEventListener('click' , function(){
+    document.getElementById('Congratulations').classList.remove('hidden')
+
+})
+document.getElementById('go-home').addEventListener('click' , function(){
+    document.getElementById('Congratulations').classList.add('hidden')
+
 })
